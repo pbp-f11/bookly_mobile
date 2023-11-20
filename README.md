@@ -114,5 +114,7 @@ Aplikasi yang ingin kami kembangkan bernama Bookly. Bookly adalah aplikasi yang 
 Dalam aplikasi kami, pengguna yang berinteraksi akan memiliki peran sebagai pengamat katalog buku yang kami sediakan. Para pengguna juga dapat menggunakan beberapa fitur yang disediakan oleh aplikasi kami, seperti search book by title, add review, edit review, dan delete review. Selain itu, pengguna juga dapat menambahkan, mengubah, dan menghapus buku dalam dataset.
 
 ## Alur pengintegrasian dengan web service untuk terhubung dengan aplikasi web yang sudah dibuat saat Proyek Tengah Semester
-<br>
+...
+
 ## Menambahkan tautan berita acara ke README.md
+...
