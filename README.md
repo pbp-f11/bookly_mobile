@@ -11,9 +11,9 @@
 
 Kongres Bahasa Indonesia merupakan salah satu acara terkemuka dalam bidang kebahasaan dan kesastraan di Indonesia. Kongres ini diselenggarakan oleh Badan Pengembangan dan Pembinaan Bahasa, Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi setiap lima tahun sekali. Kongres Bahasa Indonesia memiliki peran penting dalam membahas isu-isu kebahasaan dan kesastraan yang relevan dengan perkembangan bangsa.
 
-Dengan itu, kami ingin membuat aplikasi web yang mengembangkan konsep dasar katalog buku di Django dengan menerapkan model berbasis class. Selain itu, kami ingin memasukkan setidaknya 100 data buku ke dalam basis data Django dari dataset katalog buku yang bervariasi. Sumber dataset ini dapat diperoleh dari berbagai sumber terpercaya seperti Project Gutenberg, Google Books API, Kaggle, atau Data Skripsi LONTAR. Dengan pendekatan ini, kami akan memiliki sistem yang memungkinkan penyimpanan, pengelolaan, dan penampilan informasi buku dengan baik di aplikasi Django yang kami kembangkan. 
+Dengan itu, kami ingin membuat aplikasi yang mengembangkan konsep dasar katalog buku di Django dengan menerapkan model berbasis class. Selain itu, kami ingin memasukkan setidaknya 100 data buku ke dalam basis data Django dari dataset katalog buku yang bervariasi. Sumber dataset ini dapat diperoleh dari berbagai sumber terpercaya seperti Project Gutenberg, Google Books API, Kaggle, atau Data Skripsi LONTAR. Dengan pendekatan ini, kami akan memiliki sistem yang memungkinkan penyimpanan, pengelolaan, dan penampilan informasi buku dengan baik di aplikasi Django yang kami kembangkan. 
 
-Aplikasi web yang ingin kami kembangkan bernama Bookly. Bookly adalah aplikasi yang menghadirkan pengalaman berbagi sesama pecinta buku. Pengguna dapat membuat profil pribadi, memberikan review, dan memberikan peringkat buku yang telah mereka baca. Pengguna dapat membentuk komunitas membaca, berpartisipasi dalam diskusi buku, dan mengikuti teman-teman mereka untuk memperluas jaringan literasi mereka. Bookly memiliki antarmuka yang intuitif dan ramah pengguna. Aplikasi ini mendorong minat literasi dan membantu pengguna menjelajahi dunia literatur dengan lebih mudah dan menyenangkan.
+Aplikasi yang ingin kami kembangkan bernama Bookly. Bookly adalah aplikasi yang menghadirkan pengalaman berbagi sesama pecinta buku. Pengguna dapat membuat profil pribadi, memberikan review, dan memberikan peringkat buku yang telah mereka baca. Pengguna dapat membentuk komunitas membaca, berpartisipasi dalam diskusi buku, dan mengikuti teman-teman mereka untuk memperluas jaringan literasi mereka. Bookly memiliki antarmuka yang intuitif dan ramah pengguna. Aplikasi ini mendorong minat literasi dan membantu pengguna menjelajahi dunia literatur dengan lebih mudah dan menyenangkan.
 
 ## Daftar Modul yang Akan Diimplementasikan
 1. Auth (login n register), Show review, Search: kelompok
@@ -37,7 +37,7 @@ Aplikasi web yang ingin kami kembangkan bernama Bookly. Bookly adalah aplikasi y
       Register
     </td>
     <td>
-      Mendaftarkan user baru ke web.
+      Mendaftarkan user baru ke Aplikasi.
     </td>
   </tr>
   <tr>
@@ -45,7 +45,7 @@ Aplikasi web yang ingin kami kembangkan bernama Bookly. Bookly adalah aplikasi y
       Login
     </td>
     <td>
-      Login ke web sesuai user yang telah diregister
+      Login ke Aplikasi sesuai user yang telah diregister
     </td>
   </tr>
   <tr>
@@ -111,4 +111,8 @@ Aplikasi web yang ingin kami kembangkan bernama Bookly. Bookly adalah aplikasi y
 - https://univindonesia-my.sharepoint.com/:x:/g/personal/iisafriyanti_office_ui_ac_id/EY1Lmwm40rJLhtbWtKerNOYBI3BxiLSlDbLuL3mFIsw8wA?rtime=0DhkUsXI20g
 
 ## Role atau Peran Pengguna Beserta Deskripsinya
-Dalam aplikasi web kami, pengguna yang berinteraksi akan memiliki peran sebagai pengamat katalog buku yang kami sediakan. Para pengguna juga dapat menggunakan beberapa fitur yang disediakan oleh aplikasi web kami, seperti search book by title, add review, edit review, dan delete review. Selain itu, pengguna juga dapat menambahkan, mengubah, dan menghapus buku dalam dataset.
+Dalam aplikasi kami, pengguna yang berinteraksi akan memiliki peran sebagai pengamat katalog buku yang kami sediakan. Para pengguna juga dapat menggunakan beberapa fitur yang disediakan oleh aplikasi kami, seperti search book by title, add review, edit review, dan delete review. Selain itu, pengguna juga dapat menambahkan, mengubah, dan menghapus buku dalam dataset.
+
+## Alur pengintegrasian dengan web service untuk terhubung dengan aplikasi web yang sudah dibuat saat Proyek Tengah Semester
+<br>
+## Menambahkan tautan berita acara ke README.md
