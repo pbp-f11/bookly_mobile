@@ -114,7 +114,13 @@ Aplikasi yang ingin kami kembangkan bernama Bookly. Bookly adalah aplikasi yang 
 Dalam aplikasi kami, pengguna yang berinteraksi akan memiliki peran sebagai pengamat katalog buku yang kami sediakan. Para pengguna juga dapat menggunakan beberapa fitur yang disediakan oleh aplikasi kami, seperti add review, edit review, dan delete review. Selain itu, pengguna juga dapat menambahkan, mengubah, dan menghapus buku dalam dataset.
 
 ## Alur pengintegrasian dengan web service untuk terhubung dengan aplikasi web yang sudah dibuat saat Proyek Tengah Semester
-...
+1. Mendefinisikan model-model yang diperlukan saat pemanggilan web service.
+2. Menambahkan dependensi http pada proyek aplikasi
+3. Menambahkan potongan kode untuk memperbolehkan akses internet pada aplikasi Flutter di file android/app/src/main/AndroidManifest.xml.
+4. Melakukan fetch data dengan hit endpoint API menggunakan method POST, GET, DELETE, dan lain-lain.
+5. Data yang sudah di-fetch kemudian di-decode menjadi bentuk JSON.
+6. Data dalam bentuk JSON dikonversi lagi menjadi data dalam bentuk sebuah model.
+7. Data dalam bentuk model tersebut ditampilkan pada app Flutter.
 
 ## Menambahkan tautan berita acara ke README.md
 [Tautan Berita](https://docs.google.com/spreadsheets/d/1iMTYbRv7P_zatXg2rPocMPP-_elBeP-Q/edit#gid=1894349254)
