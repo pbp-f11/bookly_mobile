@@ -20,7 +20,7 @@ class LeftDrawer extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'Shopping List',
+                  'Bookly',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 30,
