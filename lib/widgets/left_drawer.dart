@@ -20,7 +20,7 @@ class LeftDrawer extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'Shopping List',
+                  'Bookly',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 30,
@@ -93,7 +93,7 @@ class LeftDrawer extends StatelessWidget {
 
   void logoutProcess(BuildContext context) async {
   final response =
-      await request.logout("http://127.0.0.1:8000/auth/logout/");
+      await request.logout("https://bookly-f11-tk.pbp.cs.ui.ac.id/auth/logout/");
   String message = response["message"];
   if (response['status']) {
     String uname = response["username"];
