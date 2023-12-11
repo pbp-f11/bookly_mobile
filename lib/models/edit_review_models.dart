@@ -1,3 +1,5 @@
+
+
 import 'dart:convert';
 
 List<EditReviewM> editReviewMFromJson(String str) => List<EditReviewM>.from(json.decode(str).map((x) => EditReviewM.fromJson(x)));
@@ -21,17 +23,24 @@ class EditReviewM {
         fields: Fields.fromJson(json["fields"]),
     );
 
-  get user => null;
+  // get user => null;
 
-  get reviews => null;
+  // get reviews => null;
 
-  get rating => null;
+  // get rating => null;
+
+  List<String> get user => fields.user;
+  int get rating => fields.rating;
+  String get reviews => fields.reviews;
+
 
     Map<String, dynamic> toJson() => {
         "model": model,
         "pk": pk,
         "fields": fields.toJson(),
     };
+
+    
 }
 
 class Fields {
