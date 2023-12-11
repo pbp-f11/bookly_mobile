@@ -1,16 +1,22 @@
+import 'dart:js';
+
 import 'package:bookly_mobile/models/edit_review_models.dart';
 import 'package:bookly_mobile/widgets/left_drawer.dart';
 import 'package:bookly_mobile/widgets/review_card.dart';
 import 'package:flutter/material.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
+import 'package:http/http.dart' as http;
+
 
 class EditReview extends StatefulWidget {
   const EditReview({super.key});
+  
 
   @override
   State<EditReview> createState() => _EditReviewState();
 }
+
 
 class _EditReviewState extends State<EditReview> {
   Future<List<EditReviewM>> fetchProduct(request) async {
@@ -51,7 +57,7 @@ class _EditReviewState extends State<EditReview> {
                 children: [
                   Text(
                     "Tidak ada data produk.",
-                    style: TextStyle(color: Color(0xff59A5D8), fontSize: 20),
+                    style: TextStyle(color: Color.fromARGB(255, 89, 91, 216), fontSize: 20),
                   ),
                   SizedBox(height: 8),
                 ],
@@ -87,5 +93,6 @@ class _EditReviewState extends State<EditReview> {
         },
       ),
     );
+    
   }
 }
