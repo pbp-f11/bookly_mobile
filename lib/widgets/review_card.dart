@@ -22,7 +22,7 @@ class ReviewCard extends StatefulWidget {
 
 Future<void> _deletereview (BuildContext context, CookieRequest request,  EditReviewM review) async {
   await request.postJson(
-      'http://127.0.0.1:8000/review/show-reviews-specific-user/delete-item-flutter/',
+      'https://bookly-f11-tk.pbp.cs.ui.ac.id/review/show-reviews-specific-user/delete-item-flutter/',
       jsonEncode({
         "review_id": review.pk
       }
