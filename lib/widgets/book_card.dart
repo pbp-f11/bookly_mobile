@@ -1,33 +1,19 @@
-import 'package:bookly_mobile/screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:bookly_mobile/models/book.dart';
-import 'package:bookly_mobile/models/review.dart';
-
 import 'package:bookly_mobile/screens/add_review.dart';
-
-
-
-
-// class ShopItem {
-//   final String name;
-//   final IconData icon;
-//   final Color color;
-//
-//   ShopItem(this.name, this.icon, this.color);
-// }
 
 class BookCard extends StatelessWidget {
   final Book item;
 
-  BookCard(this.item); // Removed the 'review' parameter
+  BookCard(this.item);
 
   @override
   Widget build(BuildContext context) {
     final request = context.watch<CookieRequest>();
-    return Material(
-      color: Colors.indigo,
+    return Card(
+      elevation: 2,
       child: InkWell(
         onTap: () async {
           ScaffoldMessenger.of(context)
@@ -38,24 +24,33 @@ class BookCard extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => AddReview(bookId: item.pk, book: item), // Pass item.pk as bookId
+              builder: (context) => AddReview(bookId: item.pk, book: item),
             ),
           );
         },
-        child: Container(
-          padding: const EdgeInsets.all(8),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Padding(padding: EdgeInsets.all(3)),
-                Text(
-                  item.fields.name,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(color: Colors.white),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              double fontSize = 18.0;
+              if (constraints.maxWidth < 200) {
+                fontSize = 14.0; // Atur ukuran font minimum
+              } else if (constraints.maxWidth < 300) {
+                fontSize = 16.0; // Atur ukuran font medium
+              }
+
+              return Text(
+                item.fields.name,
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: fontSize,
+                  fontWeight: FontWeight.bold,
                 ),
-              ],
-            ),
+              );
+            },
           ),
         ),
       ),
