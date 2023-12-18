@@ -1,49 +1,56 @@
 import 'dart:convert';
-
-import 'package:bookly_mobile/screens/edit_review.dart';
 import 'package:flutter/material.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
-class EditButton extends StatelessWidget {
-  final int reviewId;
+class AddButton extends StatelessWidget {
+  final int bookId;
   final TextEditingController ratingController;
   final TextEditingController reviewController;
 
-  EditButton({
+  AddButton({
     Key? key,
-    required this.reviewId,
+    required this.bookId,
     required this.ratingController,
     required this.reviewController,
   }) : super(key: key);
 
   Future<void> _submitReview(BuildContext context, request) async {
-    print(reviewId);
     final response = await request.postJson(
-        "http://127.0.0.1:8000/review/show-reviews-specific-user/edit-review-flutter/",
-        jsonEncode(<String, String>{
-          'id': reviewId.toString(),
-          'rating': ratingController.text,
-          'reviews': reviewController.text,
-        }
-        )
+      "http://localhost:8000/review/add-review-flutter/${this.bookId}/",
+      jsonEncode(<String, String>{
+        'book_id': bookId.toString(),
+        'rating': ratingController.text,
+        'reviews': reviewController.text,
+      }),
     );
+
+    print("Response from server: ${response.body}");
+
+    try {
+      final decodedResponse = json.decode(response.body);
+      // Handle the decoded response here
+      print("Decoded response: $decodedResponse");
+    } catch (e) {
+      print("Error decoding JSON: $e");
+    }
     // Handle the response here, for example, show a success dialog
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text('Review Submitted'),
-          content: Text('Your review has been updated successfully.'),
+          content: Text('Your review has been added successfully.'),
           actions: [
             TextButton(
               child: Text('OK'),
               onPressed: () {
                 Navigator.of(context).pop(); // Close the dialog
-                Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => EditReview()), // Mengarahkan ke halaman edit
-            );
+                // Optionally, you can navigate to another screen after submitting
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => SomeOtherScreen()),
+                // );
               },
             ),
           ],
@@ -84,8 +91,9 @@ class EditButton extends StatelessWidget {
               onTap: () => _submitReview(context, request),
               child: Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
-                    color: Color(0xff0056ff)),
+                  borderRadius: BorderRadius.circular(30),
+                  color: Color(0xff0056ff),
+                ),
                 height: 50,
                 width: 280,
                 child: Row(
@@ -93,15 +101,17 @@ class EditButton extends StatelessWidget {
                     Expanded(
                       child: Container(
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30.0),
-                            color: Color(0xff0056ff)),
+                          borderRadius: BorderRadius.circular(30.0),
+                          color: Color(0xff0056ff),
+                        ),
                         height: 50,
                         child: const Align(
                           child: Text(
-                            "Edit Submit",
+                            "Add Submit",
                             style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
