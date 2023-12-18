@@ -33,7 +33,7 @@ class ShopCard extends StatelessWidget {
           // Navigate ke route yang sesuai (tergantung jenis tombol)
            if (item.name == "Logout") {
             final response =
-                await request.logout("https://bookly-f11-tk.pbp.cs.ui.ac.id/auth/logout/");
+                await request.logout("http://127.0.0.1:8000/auth/logout/");
             String message = response["message"];
             if (response['status']) {
               String uname = response["username"];
