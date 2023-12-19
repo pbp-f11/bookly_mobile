@@ -16,8 +16,8 @@ class AddButton extends StatelessWidget {
   }) : super(key: key);
 
   Future<void> _submitReview(BuildContext context, request) async {
-    final response = await request.post(
-      "http://localhost:8000/review/add-review-flutter/${this.bookId}/",
+    final response = await request.postJson(
+      "http://127.0.0.1:8000/review/add-review-flutter/${this.bookId}/",
       jsonEncode(<String, dynamic>{
         'book_id': bookId,
         'rating': ratingController.text,
@@ -62,7 +62,16 @@ class AddButton extends StatelessWidget {
   // final request = context.watch<CookieRequest>();
   @override
   Widget build(BuildContext context) {
+
     final request = context.watch<CookieRequest>();
+
+    print("halo");
+    print(request.cookies);
+    print("halo2");
+    print(request.headers);
+
+
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(8.0),
