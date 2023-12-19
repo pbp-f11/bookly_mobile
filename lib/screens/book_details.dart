@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:bookly_mobile/models/book.dart';
 import 'package:bookly_mobile/widgets/left_drawer.dart';
 import 'package:bookly_mobile/screens/add_review.dart';
+import 'package:bookly_mobile/widgets/form_edit_book.dart';
 import 'dart:convert';
 
 class BookDetails extends StatefulWidget {
@@ -122,9 +123,12 @@ class _BookDetailsState extends State<BookDetails> {
   Widget _buildEditButton(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        // Implement navigation to the edit book page
-        // Navigator.push(context, MaterialPageRoute(builder: (context) => EditBookPage(book: widget.book)));
-        // You need to create EditBookPage and handle the logic to edit book.
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => EditBookPage(book: widget.book),
+            ),
+          );
       },
       child: Text('Edit Book'),
     );

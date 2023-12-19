@@ -1,5 +1,3 @@
-
-
 import 'dart:convert';
 
 List<EditReviewM> editReviewMFromJson(String str) => List<EditReviewM>.from(json.decode(str).map((x) => EditReviewM.fromJson(x)));
