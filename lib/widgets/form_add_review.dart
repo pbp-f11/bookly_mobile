@@ -18,8 +18,8 @@ class AddButton extends StatelessWidget {
   Future<void> _submitReview(BuildContext context, request) async {
     final response = await request.postJson(
       "http://localhost:8000/review/add-review-flutter/${this.bookId}/",
-      jsonEncode(<String, String>{
-        'book_id': bookId.toString(),
+      jsonEncode(<String, dynamic>{
+        'book_id': bookId,
         'rating': ratingController.text,
         'reviews': reviewController.text,
       }),
