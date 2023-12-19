@@ -4,6 +4,7 @@ import 'package:bookly_mobile/models/book.dart';
 import 'package:bookly_mobile/widgets/left_drawer.dart';
 import 'package:bookly_mobile/screens/add_review.dart';
 import 'package:bookly_mobile/widgets/form_edit_book.dart';
+import 'package:bookly_mobile/screens/menu.dart';
 import 'dart:convert';
 
 class BookDetails extends StatefulWidget {
@@ -42,7 +43,21 @@ class _BookDetailsState extends State<BookDetails> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('Book Details'),
+        title: Row(
+          children: [
+            InkWell(
+              onTap: () {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => MyHomePage()),
+                );
+              },
+              child: Icon(Icons.arrow_back), // Tombol back
+            ),
+            SizedBox(width: 8), // Jarak antara tombol dan judul
+            Text('Book Details'), // Judul
+          ],
+        ),
         backgroundColor: Colors.indigo,
         foregroundColor: Colors.white,
       ),
@@ -111,7 +126,7 @@ class _BookDetailsState extends State<BookDetails> {
         ),
         SizedBox(height: 4.0),
         Text(
-          label == 'Price' ? '$value \$' : value, 
+          label == 'Price' ? '$value \$' : value,
           style: TextStyle(fontSize: 18, color: Colors.black87),
         ),
         SizedBox(height: 16.0),
@@ -119,16 +134,15 @@ class _BookDetailsState extends State<BookDetails> {
     );
   }
 
-
   Widget _buildEditButton(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
         Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => EditBookPage(book: widget.book),
-            ),
-          );
+          context,
+          MaterialPageRoute(
+            builder: (context) => EditBookPage(book: widget.book),
+          ),
+        );
       },
       child: Text('Edit Book'),
     );
@@ -138,11 +152,11 @@ class _BookDetailsState extends State<BookDetails> {
     return ElevatedButton(
       onPressed: () {
         Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => AddReview(bookId: widget.bookId, book: widget.book),
-            ),
-          );
+          context,
+          MaterialPageRoute(
+            builder: (context) => AddReview(bookId: widget.bookId, book: widget.book),
+          ),
+        );
       },
       child: Text('Show Reviews'),
     );
