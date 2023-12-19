@@ -2,14 +2,19 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
+import 'package:bookly_mobile/models/book.dart';
+import 'package:bookly_mobile/screens/add_review.dart';
+
 
 class AddButton extends StatelessWidget {
+  final Book book;
   final int bookId;
   final TextEditingController ratingController;
   final TextEditingController reviewController;
 
   AddButton({
     Key? key,
+    required this.book,
     required this.bookId,
     required this.ratingController,
     required this.reviewController,
@@ -19,38 +24,38 @@ class AddButton extends StatelessWidget {
     final response = await request.postJson(
       "http://127.0.0.1:8000/review/add-review-flutter/${this.bookId}/",
       jsonEncode(<String, dynamic>{
+        'book' : book,
         'book_id': bookId,
         'rating': ratingController.text,
         'reviews': reviewController.text,
       }),
     );
 
-    print("Response from server: ${response.body}");
+    // print("Response from server: ${response.body}");
 
-    try {
-      final decodedResponse = json.decode(response.body);
-      // Handle the decoded response here
-      print("Decoded response: $decodedResponse");
-    } catch (e) {
-      print("Error decoding JSON: $e");
-    }
+    // try {
+    //   final decodedResponse = json.decode(response.body);
+    //   // Handle the decoded response here
+    //   print("Decoded response: $decodedResponse");
+    // } catch (e) {
+    //   print("Error decoding JSON: $e");
+    // }
     // Handle the response here, for example, show a success dialog
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text('Review Submitted'),
-          content: Text('Your review has been added successfully.'),
+          content: Text('Your review has been updated successfully.'),
           actions: [
             TextButton(
               child: Text('OK'),
               onPressed: () {
                 Navigator.of(context).pop(); // Close the dialog
-                // Optionally, you can navigate to another screen after submitting
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => SomeOtherScreen()),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AddReview(bookId: bookId, book: book)), // Mengarahkan ke halaman edit
+                );
               },
             ),
           ],

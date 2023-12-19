@@ -60,6 +60,7 @@ class _AddReviewState extends State<AddReview> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => AddButton(
+                    book: widget.book,
                     bookId: widget.bookId,
                     ratingController: TextEditingController(),
                     reviewController: TextEditingController(),
