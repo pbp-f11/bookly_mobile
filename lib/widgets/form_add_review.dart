@@ -83,13 +83,15 @@ class AddButton extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            
             TextField(
               controller: ratingController,
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 labelText: 'Rating',
-                hintText: 'Enter your rating',
+                hintText: 'Enter your rating (Numeric only!)',
               ),
+              
             ),
             SizedBox(height: 8),
             TextField(

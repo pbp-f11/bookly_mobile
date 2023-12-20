@@ -34,7 +34,7 @@ class _ProfilePageState extends State<ProfilePage> {
   String _email = '';
 
   Future<void> fetchProfile(CookieRequest request) async {
-    var response = await request.get('http://localhost:8000/profile-json/');
+    var response = await request.get('http://127.0.0.1:8000/profile-json/');
     
     print('RESPONSE => ${response.toString()}');
     
@@ -175,11 +175,13 @@ class _ProfilePageState extends State<ProfilePage> {
                         )),
                     keyboardType: TextInputType.number,
                     validator: (value) {
-                      try {
-                        double.parse(value!);
-                      }
-                      catch (e) {
-                        return 'Field hanya menerima angka';
+                      if (value != '') {
+                        try {
+                          double.parse(value!);
+                        }
+                        catch (e) {
+                          return 'Field hanya menerima angka';
+                        }
                       }
                       return null;
                     },
@@ -232,11 +234,6 @@ class _ProfilePageState extends State<ProfilePage> {
                         _address = value!;
                       });
                     },
-                    // onChanged: (String? value) {
-                    //   setState(() {
-                    //     _addressController.text = value!;
-                    //   });
-                    // },
                   ),
               ),
 
@@ -257,7 +254,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             if (_formKey.currentState!.validate()) {
                               // Kirim ke Django dan tunggu respons
                               final response = await request.postJson(
-                                  "http://localhost:8000/update-profile/",
+                                  "http://127.0.0.1:8000/update-profile/",
                                   jsonEncode(<String, String>{
                                     'email': _email,
                                     'first_name': _firstName,
