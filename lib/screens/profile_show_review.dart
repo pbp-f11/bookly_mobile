@@ -5,8 +5,6 @@ import 'package:bookly_mobile/models/review.dart';
 import 'package:bookly_mobile/screens/profile_review_page.dart';
 import 'package:bookly_mobile/widgets/book_card_profile.dart';
 import 'package:flutter/material.dart';
-import 'package:bookly_mobile/models/profile.dart';
-import 'package:bookly_mobile/screens/menu.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:pbp_django_auth/pbp_django_auth.dart';
@@ -42,7 +40,7 @@ class _ShowReviewState extends State<ShowReview> {
   }
 
   Future<void> fetchBook (CookieRequest request) async {
-    var response = await request.get('http://localhost:8000/add_book/get_book/');
+    var response = await request.get('http://127.0.0.1:8000/add_book/get_book/');
 
     List<Book> list_book = [];
     for (var d in response) {
@@ -54,7 +52,7 @@ class _ShowReviewState extends State<ShowReview> {
   }
 
   Future<void> fetchReview (CookieRequest request) async {
-    var response = await request.get('http://localhost:8000/review/get-review-json-by-user-id/');
+    var response = await request.get('http://127.0.0.1:8000/review/get-review-json-by-user-id/');
     print("\nRESPONSE REVIEW ==> ${response.toString()}\n");
 
     List<Review> list_review = [];
