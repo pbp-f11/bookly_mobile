@@ -3,6 +3,8 @@ import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:bookly_mobile/models/book.dart';
 import 'package:bookly_mobile/screens/add_review.dart';
+import 'package:bookly_mobile/screens/book_details.dart';
+import 'package:bookly_mobile/widgets/left_drawer.dart';
 
 class BookCard extends StatelessWidget {
   final Book item;
@@ -13,7 +15,7 @@ class BookCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final request = context.watch<CookieRequest>();
     return Card(
-      elevation: 2,
+      elevation: 2, 
       child: InkWell(
         onTap: () async {
           ScaffoldMessenger.of(context)
@@ -24,7 +26,10 @@ class BookCard extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => AddReview(bookId: item.pk, book: item),
+              builder: (context) => BookDetails(
+                bookId: item.pk,
+                book: item,
+              ),
             ),
           );
         },
