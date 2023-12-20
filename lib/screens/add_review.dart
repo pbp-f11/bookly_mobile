@@ -92,7 +92,7 @@ class _AddReviewState extends State<AddReview> {
                       return const Column(
                         children: [
                           Text(
-                            "Tidak ada data produk.",
+                            "Belum ada review.",
                             style: TextStyle(
                                 color: Color.fromARGB(255, 89, 91, 216), fontSize: 20),
                           ),

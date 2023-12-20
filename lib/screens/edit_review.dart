@@ -58,7 +58,7 @@ class _EditReviewState extends State<EditReview> {
               return const Column(
                 children: [
                   Text(
-                    "Tidak ada data produk.",
+                    "Belum ada review.",
                     style: TextStyle(color: Color.fromARGB(255, 89, 91, 216), fontSize: 20),
                   ),
                   SizedBox(height: 8),
