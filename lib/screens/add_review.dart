@@ -37,6 +37,8 @@ class _AddReviewState extends State<AddReview> {
     print(listProduct);
     return listProduct;
   }
+  // final request = context.watch<CookieRequest>();
+
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +60,7 @@ class _AddReviewState extends State<AddReview> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => AddButton(
+                    book: widget.book,
                     bookId: widget.bookId,
                     ratingController: TextEditingController(),
                     reviewController: TextEditingController(),
