@@ -46,7 +46,7 @@ class AddButton extends StatelessWidget {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text('Review Submitted'),
-          content: Text('Your review has been updated successfully.'),
+          content: Text('Your review has been added successfully.'),
           actions: [
             TextButton(
               child: Text('OK'),
