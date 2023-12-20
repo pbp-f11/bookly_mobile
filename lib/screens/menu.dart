@@ -1,64 +1,99 @@
 import 'package:bookly_mobile/widgets/left_drawer.dart';
 import 'package:bookly_mobile/widgets/shop_card.dart';
+import 'package:bookly_mobile/widgets/book_card.dart';
 import 'package:flutter/material.dart';
+import 'package:bookly_mobile/models/book.dart';
+import 'dart:convert';
+import  'dart:core';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:provider/provider.dart';
+import 'package:http/http.dart' as http;
 
 class MyHomePage extends StatelessWidget {
+  List<Book> listProduct = [];
+
   MyHomePage({Key? key}) : super(key: key);
 
-  final List<ShopItem> items = [
-    ShopItem("Lihat Produk", Icons.checklist, Colors.indigo),
-    ShopItem("Tambah Produk", Icons.add_shopping_cart, Colors.indigo),
-    ShopItem("Logout", Icons.logout, Colors.indigo),
-  ];
+  Future<List<Book>> fetchProduct(request) async {
+    try {
+      var response = await request.get(
+        'https://bookly-f11-tk.pbp.cs.ui.ac.id/add_book/get_book/',
+      );
+
+      print('Response type: ${response.runtimeType}');
+
+      if (response is List<dynamic>) {
+        // Assuming your response is a List<dynamic>
+        // Parse the response JSON
+        List<dynamic> jsonResponse = response;
+
+        // Create a list of Book objects from the parsed JSON
+        List<Book> listProduct = jsonResponse.map((data) => Book.fromJson(data)).toList();
+
+        return listProduct;
+      } else {
+        // Log the response and throw an exception
+        print('Unexpected response type: ${response.runtimeType}');
+        throw Exception('Invalid response type. Expected List<dynamic>.');
+      }
+    } catch (error) {
+      // Handle errors, log them, and throw the exception again
+      print('Error fetching products: $error');
+      throw Exception('Failed to load products. Error: $error');
+    }
+  }
+
+  
 
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-            'Bookly',
-          ),
-          backgroundColor: Colors.indigo,
-          foregroundColor: Colors.white,
-        ),
-          // Masukkan drawer sebagai parameter nilai drawer dari widget Scaffold
-          drawer: const LeftDrawer(),
-          body: SingleChildScrollView(
-            // Widget wrapper yang dapat discroll
-            child: Padding(
-          padding: const EdgeInsets.all(10.0), // Set padding dari halaman
-          child: Column(
-            // Widget untuk menampilkan children secara vertikal
-            children: <Widget>[
-              const Padding(
-                padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
-                // Widget Text untuk menampilkan tulisan dengan alignment center dan style yang sesuai
-                child: Text(
-                  'PBP Shop', // Text yang menandakan toko
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  ),
+        title: const Text('Bookly'),
+        backgroundColor: Colors.indigo,
+        foregroundColor: Colors.white,
+      ),
+      drawer: const LeftDrawer(),
+      body: FutureBuilder(
+        future: fetchProduct(request),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return CircularProgressIndicator();
+          } else if (snapshot.hasError) {
+            return Text('Error: ${snapshot.error}');
+          } else {
+            // Use the fetched data to build the UI
+            return SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  children: <Widget>[
+                    const Padding(
+                      padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                      child: Text(
+                        'Welcome to Bookly!',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    GridView.count(
+                      crossAxisCount: 3,
+                      shrinkWrap: true,
+                      children: (snapshot.data as List<Book>).map((item) {
+                        return BookCard(item);
+                      }).toList(),
+                    ),
+                  ],
                 ),
               ),
-              // Grid layout
-              GridView.count(
-                // Container pada card kita.
-                primary: true,
-                padding: const EdgeInsets.all(20),
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-                crossAxisCount: 3,
-                shrinkWrap: true,
-                children: items.map((ShopItem item) {
-                  // Iterasi untuk setiap item
-                  return ShopCard(item);
-                }).toList(),
-              ),
-            ],
-          ),
-        ),
+            );
+          }
+        },
       ),
     );
   }

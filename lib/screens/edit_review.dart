@@ -19,6 +19,7 @@ class EditReview extends StatefulWidget {
 
 
 class _EditReviewState extends State<EditReview> {
+
   Future<List<EditReviewM>> fetchProduct(request) async {
     var response = await request.get(
       'https://bookly-f11-tk.pbp.cs.ui.ac.id/review/get-review-json-by-user-id/',
@@ -30,6 +31,7 @@ class _EditReviewState extends State<EditReview> {
         listProduct.add(EditReviewM.fromJson(d));
       }
     }
+    print(listProduct);
     return listProduct;
   }
 
@@ -56,7 +58,7 @@ class _EditReviewState extends State<EditReview> {
               return const Column(
                 children: [
                   Text(
-                    "Tidak ada data produk.",
+                    "Belum ada review.",
                     style: TextStyle(color: Color.fromARGB(255, 89, 91, 216), fontSize: 20),
                   ),
                   SizedBox(height: 8),
