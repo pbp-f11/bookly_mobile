@@ -22,7 +22,7 @@ class AddButton extends StatelessWidget {
 
   Future<void> _submitReview(BuildContext context, request) async {
     final response = await request.postJson(
-      "http://127.0.0.1:8000/review/add-review-flutter/${this.bookId}/",
+      "https://bookly-f11-tk.pbp.cs.ui.ac.id/review/add-review-flutter/${this.bookId}/",
       jsonEncode(<String, dynamic>{
         'book' : book,
         'book_id': bookId,

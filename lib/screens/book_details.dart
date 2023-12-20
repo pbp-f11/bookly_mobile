@@ -28,7 +28,7 @@ class _BookDetailsState extends State<BookDetails> {
 
   Future<Book> fetchBookDetails() async {
     var response = await http.get(
-      Uri.parse('http://127.0.0.1:8000/edit_book/get_book_json/${widget.bookId}'),
+      Uri.parse('https://bookly-f11-tk.pbp.cs.ui.ac.id/edit_book/get_book_json/${widget.bookId}'),
     );
 
     if (response.statusCode == 200) {

@@ -20,7 +20,7 @@ class EditButton extends StatelessWidget {
   Future<void> _submitReview(BuildContext context, request) async {
     print(reviewId);
     final response = await request.postJson(
-        "http://127.0.0.1:8000/review/show-reviews-specific-user/edit-review-flutter/",
+        "https://bookly-f11-tk.pbp.cs.ui.ac.id/review/show-reviews-specific-user/edit-review-flutter/",
         jsonEncode(<String, String>{
           'id': reviewId.toString(),
           'rating': ratingController.text,

@@ -40,7 +40,7 @@ class _ShowReviewState extends State<ShowReview> {
   }
 
   Future<void> fetchBook (CookieRequest request) async {
-    var response = await request.get('http://127.0.0.1:8000/add_book/get_book/');
+    var response = await request.get('https://bookly-f11-tk.pbp.cs.ui.ac.id/add_book/get_book/');
 
     List<Book> list_book = [];
     for (var d in response) {
@@ -52,7 +52,7 @@ class _ShowReviewState extends State<ShowReview> {
   }
 
   Future<void> fetchReview (CookieRequest request) async {
-    var response = await request.get('http://127.0.0.1:8000/review/get-review-json-by-user-id/');
+    var response = await request.get('https://bookly-f11-tk.pbp.cs.ui.ac.id/review/get-review-json-by-user-id/');
     print("\nRESPONSE REVIEW ==> ${response.toString()}\n");
 
     List<Review> list_review = [];

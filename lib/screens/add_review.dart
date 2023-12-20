@@ -25,7 +25,7 @@ class _AddReviewState extends State<AddReview> {
 
   Future<List<Review>> fetchProduct(request) async {
     var response = await request.get(
-      'http://127.0.0.1:8000/review/get-review/${widget.bookId}',
+      'https://bookly-f11-tk.pbp.cs.ui.ac.id/review/get-review/${widget.bookId}',
     );
 
     List<Review> listProduct = [];

@@ -22,7 +22,7 @@ class _EditReviewState extends State<EditReview> {
 
   Future<List<EditReviewM>> fetchProduct(request) async {
     var response = await request.get(
-      'http://127.0.0.1:8000/review/get-review-json-by-user-id/',
+      'https://bookly-f11-tk.pbp.cs.ui.ac.id/review/get-review-json-by-user-id/',
     );
 
     List<EditReviewM> listProduct = [];

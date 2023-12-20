@@ -31,7 +31,7 @@ class _EditBookPageState extends State<EditBookPage> {
 
   Future<void> updateBook(BuildContext context) async {
     final apiUrl =
-        Uri.parse('http://127.0.0.1:8000/edit_book/edit_book_flutter/${widget.book.pk}');
+        Uri.parse('https://bookly-f11-tk.pbp.cs.ui.ac.id/edit_book/edit_book_flutter/${widget.book.pk}');
 
     final response = await http.put(
       apiUrl,

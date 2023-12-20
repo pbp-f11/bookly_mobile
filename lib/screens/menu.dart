@@ -17,7 +17,7 @@ class MyHomePage extends StatelessWidget {
   Future<List<Book>> fetchProduct(request) async {
     try {
       var response = await request.get(
-        'http://127.0.0.1:8000/add_book/get_book/',
+        'https://bookly-f11-tk.pbp.cs.ui.ac.id/add_book/get_book/',
       );
 
       print('Response type: ${response.runtimeType}');
