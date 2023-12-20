@@ -7,9 +7,10 @@
 - Humam Al Labib
 - Raquel Nayyara
 
-## Link Markdown: 
+## Links: 
 [![Build status](https://build.appcenter.ms/v0.1/apps/c0c13a2b-ec57-4ba3-946e-7ed6a2f1f1ca/branches/main/badge)](https://appcenter.ms)
 [![Release](https://github.com/pbp-f11/bookly_mobile/actions/workflows/release.yml/badge.svg)](https://github.com/pbp-f11/bookly_mobile/actions/workflows/release.yml)
+https://install.appcenter.ms/orgs/PBP-F11-2023/apps/Bookly
 
 ## Cerita Aplikasi
 
