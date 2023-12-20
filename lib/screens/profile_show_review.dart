@@ -3,7 +3,7 @@ import 'dart:collection';
 import 'package:bookly_mobile/models/book.dart';
 import 'package:bookly_mobile/models/review.dart';
 import 'package:bookly_mobile/screens/profile_review_page.dart';
-import 'package:bookly_mobile/widgets/book_card.dart';
+import 'package:bookly_mobile/widgets/book_card_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:bookly_mobile/models/profile.dart';
 import 'package:bookly_mobile/screens/menu.dart';
@@ -104,7 +104,7 @@ class _ShowReviewState extends State<ShowReview> {
         itemCount: reviewedBooks.length,
         itemBuilder: (context, index) {
           Book book = reviewedBooks.elementAt(index);
-          return BookCard(
+          return BookCardProfile(
             book: book,
             onTap: () {
               navigateToReviewPage(book);

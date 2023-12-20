@@ -4,6 +4,7 @@ import 'package:bookly_mobile/screens/login.dart';
 import 'package:bookly_mobile/screens/menu.dart';
 import 'package:bookly_mobile/screens/profile_show_review.dart';
 import 'package:flutter/material.dart';
+import 'package:bookly_mobile/screens/add_review.dart'; //just test
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -22,7 +23,7 @@ class LeftDrawer extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'Shopping List',
+                  'Bookly',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 30,
@@ -32,7 +33,7 @@ class LeftDrawer extends StatelessWidget {
                 ),
                 Padding(padding: EdgeInsets.all(10)),
                 Text(
-                  "Catat seluruh keperluan belanjamu di sini!",
+                  "Let's read a book!",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 15,
@@ -56,6 +57,18 @@ class LeftDrawer extends StatelessWidget {
               );
             },
           ),
+          // ListTile(
+          //   leading: const Icon(Icons.edit),
+          //   title: const Text('Add Review'), // just testing
+          //   onTap: () {
+          //     Navigator.pushReplacement(
+          //       context,
+          //       MaterialPageRoute(
+          //         builder: (context) => AddReview(),
+          //       ),
+          //     );
+          //   },
+          // ),
           ListTile(
             leading: const Icon(Icons.edit),
             title: const Text('Edit Review'),

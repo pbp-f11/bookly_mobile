@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:bookly_mobile/screens/edit_review.dart';
+import 'package:bookly_mobile/widgets/form_edit_review.dart';
 import 'package:flutter/material.dart';
 import 'package:bookly_mobile/models/edit_review_models.dart';
 import 'package:http/http.dart' as http;
@@ -17,20 +18,26 @@ class ReviewCard extends StatefulWidget {
 }
 
 
+
+
 Future<void> _deletereview (BuildContext context, CookieRequest request,  EditReviewM review) async {
   await request.postJson(
-      'http://127.0.0.1:8000/review/show-reviews-specific-user/delete-item-flutter',
+      'http://127.0.0.1:8000/review/show-reviews-specific-user/delete-item-flutter/',
       jsonEncode({
         "review_id": review.pk
-      }));
+      }
+    )
+  );
 }
 
 class _ReviewCardState extends State<ReviewCard> {
   @override
   Widget build(BuildContext context) {
     final request = context.watch<CookieRequest>();
+
     double fem = 1.0; 
     double ffem = 1.0; 
+    
 
     return Container(
       width: double.infinity,
@@ -70,7 +77,7 @@ class _ReviewCardState extends State<ReviewCard> {
           ),
           SizedBox(height: 17 * fem),
           Container(
-            margin: EdgeInsets.fromLTRB(16 * fem, 0 * fem, 18 * fem, 0 * fem),
+            margin: EdgeInsets.fromLTRB(16, 0 * fem, 18 * fem, 0 * fem),
             width: double.infinity,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -84,7 +91,7 @@ class _ReviewCardState extends State<ReviewCard> {
                   ),
                 ),
                 Text(
-                  '- ${widget.review.fields.user}',
+                  '- ${widget.review.fields.user}'.replaceAll('[', '').replaceAll(']', '').replaceAll('"', ''),
                   style: TextStyle(
                     fontSize: 14 * ffem,
                     fontWeight: FontWeight.w500,
@@ -109,7 +116,16 @@ class _ReviewCardState extends State<ReviewCard> {
                   child: TextButton(
                     
                     onPressed: () {
-                      // Fungsi untuk edit
+                      showDialog(
+                      context: context,
+                      builder: (context) {
+                        return EditButton(
+                          reviewId: widget.review.pk,
+                          ratingController: TextEditingController(text: '${widget.review.rating}'),
+                          reviewController: TextEditingController(text: widget.review.reviews),
+                        );
+                      },
+                    );
                     },
                     style: TextButton.styleFrom(
                       
@@ -140,6 +156,12 @@ class _ReviewCardState extends State<ReviewCard> {
                   child: TextButton(
                     onPressed: () {
                       _deletereview(context, request, widget.review);
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => EditReview(),
+                        ),
+                      );
                     },
                     style: TextButton.styleFrom(
                       padding: EdgeInsets.zero,
