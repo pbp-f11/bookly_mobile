@@ -1,6 +1,8 @@
+import 'package:bookly_mobile/screens/profile_page.dart';
 import 'package:bookly_mobile/screens/edit_review.dart';
 import 'package:bookly_mobile/screens/login.dart';
 import 'package:bookly_mobile/screens/menu.dart';
+import 'package:bookly_mobile/screens/profile_show_review.dart';
 import 'package:flutter/material.dart';
 
 class LeftDrawer extends StatelessWidget {
@@ -70,10 +72,10 @@ class LeftDrawer extends StatelessWidget {
             leading: const Icon(Icons.person),
             title: const Text('Profile'),
             onTap: () {
-               Navigator.pushReplacement(
+               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => MyHomePage(),
+                  builder: (context) => ProfilePage(),
                 ),
               );
             },
@@ -82,7 +84,6 @@ class LeftDrawer extends StatelessWidget {
             leading: const Icon(Icons.logout),
             title: const Text('Logout'),
             onTap: () {
-              
               logoutProcess(context);
             },
           ),
