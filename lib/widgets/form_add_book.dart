@@ -21,10 +21,11 @@ class AddButton extends StatelessWidget {
 
   Future<void> _submitBook(BuildContext context, request) async {
     final response = await request.postJson(
-      "http://localhost:8000/book/add-book-flutter/",
+      "http://localhost:8000/add_book/add-book-flutter/",
       jsonEncode(<String, String>{
         'name': nameController.text,
         'author': authorController.text,
+        'price': authorController.text,
         'year': yearController.text,
         'genre': genreController.text,
       }),

@@ -23,7 +23,7 @@ class _AddBookState extends State<AddBook> {
 
   Future<List<Book>> fetchProduct(request) async {
     var response = await request.get(
-      'http://127.0.0.1:8000/book/get-book/',
+      'http://127.0.0.1:8000/add_book/get_book/',
     );
 
     List<Book> listProduct = [];
