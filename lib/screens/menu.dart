@@ -73,7 +73,7 @@ class MyHomePage extends StatelessWidget {
                     const Padding(
                       padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
                       child: Text(
-                        'Bookly',
+                        'Welcome to Bookly!',
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 30,

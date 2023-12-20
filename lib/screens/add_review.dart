@@ -49,9 +49,15 @@ class _AddReviewState extends State<AddReview> {
     return Scaffold(
       backgroundColor: Color(0xFFF3F5F9),
       appBar: AppBar(
-        title: Text('Reviews of ${name}'),
+        title: Text('$name'),
         backgroundColor: Colors.indigo,
         foregroundColor: Colors.white,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
         actions: [
           ElevatedButton(
             onPressed: () {
