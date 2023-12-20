@@ -31,10 +31,9 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  final TextEditingController _usernameController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _passwordConfirmationController =
-      TextEditingController();
+  final TextEditingController _usernameController = AppData.formController.usernameController;
+  final TextEditingController _passwordController = AppData.formController.passwordController;
+  final TextEditingController _passwordConfirmationController = AppData.formController.passwordConfirmationController;
   bool _passwordVisible = false;
 
   @override
@@ -155,7 +154,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 }
                 // Registration logic, send registration request to your server API
                 final response = await http.post(
-                  Uri.parse('http://127.0.0.1:8000/auth/register/'),
+                  Uri.parse('http://localhost:8000/auth/register/'),
                   body: {
                     'username': username,
                     'password1': password,
@@ -224,4 +223,14 @@ class _RegisterPageState extends State<RegisterPage> {
       ),
     );
   }
+}
+
+class FormController {
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController passwordConfirmationController = TextEditingController();
+}
+
+class AppData {
+  static final FormController formController = FormController();
 }
