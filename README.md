@@ -21,12 +21,12 @@ Dengan itu, kami ingin membuat aplikasi yang mengembangkan konsep dasar katalog 
 Aplikasi yang ingin kami kembangkan bernama Bookly. Bookly adalah aplikasi yang menghadirkan pengalaman berbagi sesama pecinta buku. Pengguna dapat membuat profil pribadi, memberikan review, dan memberikan peringkat buku yang telah mereka baca. Pengguna dapat membentuk komunitas membaca, berpartisipasi dalam diskusi buku, dan mengikuti teman-teman mereka untuk memperluas jaringan literasi mereka. Bookly memiliki antarmuka yang intuitif dan ramah pengguna. Aplikasi ini mendorong minat literasi dan membantu pengguna menjelajahi dunia literatur dengan lebih mudah dan menyenangkan.
 
 ## Daftar Modul yang Akan Diimplementasikan
-1. Auth (login n register), Show review, Search: kelompok
+1. Auth (login n register): kelompok
 2. Profile: Cyrilus Yodha
 3. Add review: Farrel Ayman
 4. Edit/delete review: Raquel Nayyara
 5. Add book: Human al Labib
-6. Edit/delete book: Arju Naja
+6. Edit book: Arju Naja
 
 <table>
   <tr>
