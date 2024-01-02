@@ -95,10 +95,10 @@ Aplikasi yang ingin kami kembangkan bernama Bookly. Bookly adalah aplikasi yang 
   </tr>
   <tr>
     <td>
-      Edit/delete book (UR)
+      Edit book (UR)
     </td>
     <td>
-      Mengubah dan menghapus informasi mengenai suatu buku yang telah diberikan user untuk suatu buku
+      Mengubah informasi mengenai suatu buku yang telah diberikan user untuk suatu buku
     </td>
   </tr>
 </table>
