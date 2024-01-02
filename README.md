@@ -55,14 +55,6 @@ Aplikasi yang ingin kami kembangkan bernama Bookly. Bookly adalah aplikasi yang 
   </tr>
   <tr>
     <td>
-      Search
-    </td>
-    <td>
-    Bisa search buku berdasarkan judul
-    </td>
-  </tr>
-  <tr>
-    <td>
       Show review
     </td>
     <td>
